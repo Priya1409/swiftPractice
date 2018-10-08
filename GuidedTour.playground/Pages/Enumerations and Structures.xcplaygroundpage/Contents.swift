@@ -120,7 +120,7 @@ let kingOfClubs = Card(rank : .king, suit : .clubs)
 
 func fullDeck() -> [Card] {
     for <#item#> in <#items#> {
-        <#code#>
+        
     }
 }
 

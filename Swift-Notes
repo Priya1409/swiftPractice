@@ -6,6 +6,7 @@ Declarations
 	•	""" - strings 
 	•	[]-Â arrays and dictionary 
 	•	empty arrays and dictionary with or without initializer syntax 
+
 Control Flow
 	•	if 
 	•	switch- case, default 
@@ -49,3 +50,7 @@ Error handling
 	•	do-catch, try 
 	•	try? 
 	•	defer 
+Generics
+	•	in functions, methods, classes, enumerations, structures 
+	•	reimplement 
+	•	where keyword 

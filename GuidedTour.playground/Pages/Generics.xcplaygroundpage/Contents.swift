@@ -23,7 +23,7 @@ possibleInteger = .some(100)
 
 //: Use `where` right before the body to specify a list of requirements—for example, to require the type to implement a protocol, to require two types to be the same, or to require a class to have a particular superclass.
 //:
-func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
+/*func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
     where T.Element: Equatable, T.Element == U.Element
 {
     for lhsItem in lhs {
@@ -36,7 +36,20 @@ func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
    return false
 }
 anyCommonElements([1, 2, 3], [3])
-
+*/
+func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> [U]
+where T.Element: Equatable, T.Element == U.Element
+{  var arr = [U]()
+    for lhsItem in lhs {
+        for rhsItem in rhs {
+            if lhsItem == rhsItem {
+                arr.append(rhsItem)
+            }
+        }
+    }
+    return arr
+}
+anyCommonElements([1, 2, 3], [2, 3])
 //: - Experiment:
 //: Modify the `anyCommonElements(_:_:)` function to make a function that returns an array of the elements that any two sequences have in common.
 //:
