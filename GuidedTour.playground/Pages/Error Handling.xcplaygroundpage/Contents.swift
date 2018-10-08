@@ -14,15 +14,26 @@ func send(job: Int, toPrinter printerName: String) throws -> String {
     if printerName == "Never Has Toner" {
         throw PrinterError.noToner
     }
+    if printerName == "On Fire" {
+        throw PrinterError.onFire
+    }
+    if printerName == "Out of Paper" {
+        throw PrinterError.outOfPaper
+    }
     return "Job sent"
 }
 
 //: There are several ways to handle errors. One way is to use `do`-`catch`. Inside the `do` block, you mark code that can throw an error by writing `try` in front of it. Inside the `catch` block, the error is automatically given the name `error` unless you give it a different name.
 //:
 do {
-    let printerResponse = try send(job: 1040, toPrinter: "Bi Sheng")
+    let printerResponse1 = try send(job: 1040, toPrinter: "Priya")
+    print(printerResponse1)
+    let printerResponse = try send(job: 1040, toPrinter: "Never Has Toner")
     print(printerResponse)
-} catch {
+   // let printerResponse1 = try send(job: 1040, toPrinter: "Priya")
+   //  print(printerResponse1)
+}
+catch {
     print(error)
 }
 
@@ -32,13 +43,19 @@ do {
 //: You can provide multiple `catch` blocks that handle specific errors. You write a pattern after `catch` just as you do after `case` in a switch.
 //:
 do {
-    let printerResponse = try send(job: 1440, toPrinter: "Gutenberg")
+   // let printerResponse = try send(job: 1440, toPrinter: "On Fire")
+    let printerResponse = try send(job: 1440, toPrinter: "Out of Paper")
+    
     print(printerResponse)
-} catch PrinterError.onFire {
-    print("I'll just put this over here, with the rest of the fire.")
-} catch let printerError as PrinterError {
-    print("Printer error: \(printerError).")
-} catch {
+}
+
+catch PrinterError.onFire {
+   print("I'll just put this over here, with the rest of the fire.")
+}
+//catch let printerError as PrinterError {
+ //   print("Printer error: \(printerError).")
+//}
+catch {
     print(error)
 }
 

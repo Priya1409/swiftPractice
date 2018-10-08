@@ -16,15 +16,18 @@ enum Rank: Int {
             case .queen:
                 return "queen"
             case .king:
-                return "king"
+                return "king-Old"
             default:
                 return String(self.rawValue)
         }
     }
+    func compareValue() -> Bool {
+        return self.rawValue > Rank.king.rawValue
+    }
 }
 let ace = Rank.ace
 let aceRawValue = ace.rawValue
-
+let comparedValue=ace.compareValue()
 //: - Experiment:
 //: Write a function that compares two `Rank` values by comparing their raw values.
 //:
@@ -33,7 +36,7 @@ let aceRawValue = ace.rawValue
 //: Use the `init?(rawValue:)` initializer to make an instance of an enumeration from a raw value. It returns either the enumeration case matching the raw value or `nil` if there is no matching `Rank`.
 //:
 if let convertedRank = Rank(rawValue: 3) {
-    let threeDescription = convertedRank.simpleDescription()
+    let _ = convertedRank.simpleDescription()
 }
 
 //: The case values of an enumeration are actual values, not just another way of writing their raw values. In fact, in cases where there isn’t a meaningful raw value, you don’t have to provide one.
@@ -53,9 +56,18 @@ enum Suit {
                 return "clubs"
         }
     }
+    func color() -> String {
+        if self==Suit.spades || self==Suit.clubs{
+        return "black"
+        }
+        else{
+        return "red"
+        }
+    }
 }
 let hearts = Suit.hearts
 let heartsDescription = hearts.simpleDescription()
+let currentColor=Suit.diamonds.color()
 
 //: - Experiment:
 //: Add a `color()` method to `Suit` that returns “black” for spades and clubs, and returns “red” for hearts and diamonds.
@@ -67,16 +79,21 @@ let heartsDescription = hearts.simpleDescription()
 enum ServerResponse {
     case result(String, String)
     case failure(String)
+    case place(String)
 }
 
 let success = ServerResponse.result("6:00 am", "8:09 pm")
 let failure = ServerResponse.failure("Out of cheese.")
+let placed = ServerResponse.place("India")
 
-switch success {
-    case let .result(sunrise, sunset):
-        print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
+switch  success{
+    //case let .result(sunrise, sunset):
+        //print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
+case let .place(place) :
+    print("Place is \(place)")
     case let .failure(message):
         print("Failure...  \(message)")
+default : print("None")
 }
 
 //: - Experiment:
@@ -92,9 +109,20 @@ struct Card {
     func simpleDescription() -> String {
         return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
     }
+//    func comboOfRankSuit() -> Array<Int>{
+//        return
+//    }
 }
 let threeOfSpades = Card(rank: .three, suit: .spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
+
+let kingOfClubs = Card(rank : .king, suit : .clubs)
+
+func fullDeck() -> [Card] {
+    for <#item#> in <#items#> {
+        <#code#>
+    }
+}
 
 //: - Experiment:
 //: Write a function that returns an array containing a full deck of cards, with one card of each combination of rank and suit.

@@ -5,6 +5,7 @@
 protocol ExampleProtocol {
      var simpleDescription: String { get }
      mutating func adjust()
+    var anotherRequirement : Int { get }
 }
 
 //: Classes, enumerations, and structs can all adopt protocols.
@@ -12,6 +13,7 @@ protocol ExampleProtocol {
 class SimpleClass: ExampleProtocol {
      var simpleDescription: String = "A very simple class."
      var anotherProperty: Int = 69105
+    var anotherRequirement: Int = 9999
      func adjust() {
           simpleDescription += "  Now 100% adjusted."
      }
@@ -22,6 +24,8 @@ let aDescription = a.simpleDescription
 
 struct SimpleStructure: ExampleProtocol {
      var simpleDescription: String = "A simple structure"
+    var anotherRequirement: Int = 9999
+
      mutating func adjust() {
           simpleDescription += " (adjusted)"
      }
@@ -44,9 +48,20 @@ extension Int: ExampleProtocol {
     mutating func adjust() {
         self += 42
     }
+    var anotherRequirement : Int {
+        return self+9
+        
+    }
  }
 print(7.simpleDescription)
+print(9.anotherRequirement)
 
+extension Double {
+    var absoluteValue : Double {
+        return self-10.0
+    }
+}
+print(90.0.absoluteValue)
 //: - Experiment:
 //: Write an extension for the `Double` type that adds an `absoluteValue` property.
 //:
@@ -54,7 +69,7 @@ print(7.simpleDescription)
 //:
 let protocolValue: ExampleProtocol = a
 print(protocolValue.simpleDescription)
-// print(protocolValue.anotherProperty)  // Uncomment to see the error
+//print(protocolValue.anotherProperty)  // Uncomment to see the error
 
 //: Even though the variable `protocolValue` has a runtime type of `SimpleClass`, the compiler treats it as the given type of `ExampleProtocol`. This means that you can’t accidentally access methods or properties that the class implements in addition to its protocol conformance.
 //:

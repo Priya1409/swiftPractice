@@ -80,10 +80,11 @@ hasAnyMatches(list: numbers, condition: lessThanTen)
 
 //: Functions are actually a special case of closures: blocks of code that can be called later. The code in a closure has access to things like variables and functions that were available in the scope where the closure was created, even if the closure is in a different scope when it is executed—you saw an example of this already with nested functions. You can write a closure without a name by surrounding code with braces (`{}`). Use `in` to separate the arguments and return type from the body.
 //:
-numbers.map({ (number: Int) -> Int in
+let results = numbers.map({ (number: Int) -> Int in
     let result = 3 * number
     return result
 })
+print(results)
 
 //: - Experiment:
 //: Rewrite the closure to return zero for all odd numbers.

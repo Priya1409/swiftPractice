@@ -133,6 +133,17 @@ print(triangleAndSquare.triangle.sideLength)
 let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
 let sideLength = optionalSquare?.sideLength
 
+var newInt: Int = 0 {
+    willSet {
+        print("Will Set \(newInt)")
+    }
+    
+    didSet {
+        print("Did Set \(newInt)")
+    }
+    
+}
 
+newInt = 100
 
 //: [Previous](@previous) | [Next](@next)
