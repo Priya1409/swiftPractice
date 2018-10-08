@@ -1,0 +1,51 @@
+Declarations
+	•	print() 
+	•	Variables and constants - var, let 
+	•	implicit type, type declaration, Â explicit type conversion 
+	•	\() - values 
+	•	""" - strings 
+	•	[]-Â arrays and dictionary 
+	•	empty arrays and dictionary with or without initializer syntax 
+Control Flow
+	•	if 
+	•	switch- case, default 
+	•	optional values - type?, ?? 
+	•	for-in, while, repeat-while - _ 
+	•	range of indexes in loops - ..< & ... 
+
+Functions and Closures
+	•	func, -> 
+	•	_, custom argument labels 
+	•	return multiple values - tuples - name/number 
+	•	nested functions 
+	•	return another function as value 
+	•	take another function as its argument 
+	•	closures - {}, in 
+	•	reference by number in closures 
+Classes and Objects
+	•	class 
+	•	instance creation 
+	•	init, self, deinit 
+	•	subclasses 
+	•	override keyword 
+	•	getter, setter for properties - get, set 
+	•	willSet, didSet 
+	•	optional value for operations to be performed 
+Enumerations and Structures
+	•	enum, case 
+	•	instance usage 
+	•	rawValue property 
+	•	init?(rawValue : ) 
+	•	each instance having own value associated with the case/ 
+	•	struct keyword 
+	•	difference with class reference 
+Protocols and Extensions
+	•	protocol - structs, class, enums 
+	•	mutating func 
+	•	extension 
+Error handling
+	•	enum extending Error protocol 
+	•	throw, throws 
+	•	do-catch, try 
+	•	try? 
+	•	defer 
