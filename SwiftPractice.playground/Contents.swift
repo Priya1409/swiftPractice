@@ -68,3 +68,111 @@ func strBuild(_ str : String) -> String{
     return newString
 }
 print(strBuild("Python"))
+
+
+//Q) You have to Traverse a String and print each of its new character in new line using Containers.
+
+func stringTraverse (_ str : String) {
+    var arr = [Character]()
+    for (_,item) in str.enumerated() {
+    arr.append(item)
+    }
+    for i in arr {
+    print(i)
+    }
+}
+stringTraverse("Priya!")
+
+//Q)Write a Swift program to test whether a value presents sequentially three times in an array of integers or not.
+
+func checkOccurence(_ arr : [Int], _ val : Int) -> Bool{
+    var count = 0
+    var result = false
+    for i in arr {
+        if i==val {
+            count+=1
+            continue
+        }
+        count=0
+    }
+    if count==3 {
+        result=true
+    }
+    return result
+}
+print(checkOccurence([1,4,5,5,5,2,5,5,5], 5))
+
+
+//Q)Write a Swift program to test if there is a 1 in the array with a 3 somewhere later in a given array of integers.
+
+func oneLaterThree(_ arr : [Int]) -> Bool {
+   var result = false
+    var count = 0
+    for item in arr {
+        if item==1{
+            count=1
+            continue
+        }
+        if item==3 {
+            if count==1{
+                result=true
+            }
+        }
+    }
+    return result
+}
+print(oneLaterThree([2,3,1,4,2,6,3]))
+
+
+//Q) enum
+enum Planet : Int, CaseIterable  {
+    case mercury = 1
+    case venus
+    case earth
+}
+print(Planet.mercury.rawValue)
+//var instancePlanet = Planet(rawValue : 3)
+//print(instancePlanet)
+print(Planet(rawValue : 3))
+
+for item in Planet.allCases {
+    print(item)
+}
+
+
+// Q (4+6+3)*(34+(4*3))
+
+enum Expression {
+    case number(Int)
+    indirect case addition (Expression, Expression)
+    indirect case multiplication (Expression, Expression)
+}
+
+let a=Expression.number(4)
+let b=Expression.number(6)
+let c=Expression.number(3)
+let d=Expression.number(34)
+let sum1=Expression.addition(a, b)
+let sum2=Expression.addition(sum1, c)
+let mul1 = Expression.multiplication(a, c)
+let sum3=Expression.addition(d, mul1)
+let mul2=Expression.multiplication(sum2, sum3)
+
+func evaluateExpression(_ expr : Expression) -> Int {
+    switch expr {
+    case let .number(val) : return val
+    case let .addition(first, second) : return evaluateExpression(first) + evaluateExpression (second)
+    case let .multiplication(first, second) : return evaluateExpression(first) + evaluateExpression(second)
+    }
+}
+print(evaluateExpression(mul2))
+
+// remove at index
+
+var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
+print(customersInLine.count)
+// Prints "5"
+
+let customerProvider = { customersInLine.remove(at: 0) }
+print(customerProvider())
+print(customersInLine.count)
