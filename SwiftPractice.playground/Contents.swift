@@ -176,3 +176,16 @@ print(customersInLine.count)
 let customerProvider = { customersInLine.remove(at: 0) }
 print(customerProvider())
 print(customersInLine.count)
+
+
+// class
+
+class organism {
+    var hand : Int
+    var leg: Int
+    init (hand : Int, leg : Int){
+        self.hand = hand
+        self.
+    }
+    func
+}
