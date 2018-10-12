@@ -133,7 +133,7 @@ enum Planet : Int, CaseIterable  {
 print(Planet.mercury.rawValue)
 //var instancePlanet = Planet(rawValue : 3)
 //print(instancePlanet)
-print(Planet(rawValue : 3))
+//print(Planet(rawValue : 3))
 
 for item in Planet.allCases {
     print(item)
@@ -178,14 +178,58 @@ print(customerProvider())
 print(customersInLine.count)
 
 
-// class
+// class with structures, methods, properties, inheritance
 
-class organism {
-    var hand : Int
-    var leg: Int
-    init (hand : Int, leg : Int){
-        self.hand = hand
-        self.
+struct complexProp{
+    var nutrition : String
+    var respiration : String
+    var movement : String
+    mutating func growth () -> String {
+        return "growing constantly"
     }
-    func
 }
+
+class Organism {
+    var hand : Int?
+    var leg: Int?
+    var name : String
+    //var propComplex = complexProp(nutrition: "", respiration: <#T##String#>, movement: <#T##String#>) {
+     //   nutrition = "Nutrients"
+   // }
+    var description : String {
+        return "The organism's name is \(name) with \(hand!) hands and \(leg!) legs"
+    }
+    init (hand : Int?, leg : Int?, name : String){
+        if hand != nil{
+        self.hand = hand!
+    }
+        if leg != nil { self.leg = leg! }
+        self.name = name
+    }
+    func walk(){
+        print("Walks")
+    }
+    func eat(){
+        print("eats")
+    }
+    func sleep(){
+        print("sleeps")
+    }
+}
+
+let human = Organism(hand: 2, leg: 2, name: "Priya")
+print(human.description)
+human.sleep()
+
+class Plant : Organism {
+    //var status : String
+    init(nam: String){
+        super.init(hand: nil, leg: nil, name: nam)
+       // self.status = status
+    }
+    override func walk() {
+        print("Doesn't walk")
+    }
+}
+let tulsi = Plant(nam: "Tulsi")
+tulsi.walk()
