@@ -233,3 +233,67 @@ class Plant : Organism {
 }
 let tulsi = Plant(nam: "Tulsi")
 tulsi.walk()
+
+
+// tuple constancy
+let (x1, y1) = (1, 2)
+ //(let x1, var y1) = (3,4)
+print("\(x1)\(y1)")
+
+// remainder operator
+9 % -4
+-9 % -4
+
+// comparison operators
+(1, "zebra") < (2, "apple")
+(3, "apple") < (3, "bird")
+(4, "dog") == (4, "dog")
+
+// range operators
+//for i in 1>..5
+for i in 1..<5{
+    print(i)
+}
+var names = ["Priya","Riya","Iya","Ya"]
+for name in names[...2] {
+    print(name)
+}
+for i in 5...8 {
+    print(i)
+}
+
+// special characters in Strings
+let threeDoubleQuotationMarks = """
+Escaping the first quotation mark "\""
+Escaping all three quotation marks ""\"
+"""
+print(threeDoubleQuotationMarks)
+
+//adding arrays using +
+var array1 = Array(repeating: 2, count: 2)
+var array2 = Array(repeating: true, count: 4)
+var array4 = Array(repeating: 4.0, count: 2)
+//var array3 = array1 + array2
+//var array5 = array1 + array4
+
+
+//switch case-exhautiveness :
+let res="Yes"
+switch res {
+    case "Yes" : print("Yes")
+    default  : print("Default")
+}
+let result = true
+switch result {
+case true : print("Yes")
+case false : print("No")
+//default  : print("Default")
+}
+
+
+//Uniquesness of argument label
+func labelCheck(from par1: String,from par2 : String){
+    print(par1+par2)
+}
+labelCheck(from : "Priya", from :" Srivastava")
+
