@@ -297,3 +297,35 @@ func labelCheck(from par1: String,from par2 : String){
 }
 labelCheck(from : "Priya", from :" Srivastava")
 
+//
+var welcome = "hello"
+welcome.insert("!", at: welcome.endIndex)
+//welcome.insert(with: " there", at: welcome.index(welcome.endIndex, offsetBy : -3))
+
+// size of tuple <7
+(3,5,2,7,4,8)<(2,4,1,6,3,7)
+
+//new string var
+var abc = String()
+//var ab : String
+//ab = "a"
+var arr = [2]
+arr = []
+//arr.append("e")
+let name = "bv \n"
+print(name)
+print(name)
+
+var strname = "ab" + ""
+var strn = strname + "n"
+
+
+// Constant property modification during initialisation
+struct modifyCons {
+    let str : String
+    init(){
+        str = "Priya"
+    }
+}
+var mod = modifyCons()
+print(mod.str)
