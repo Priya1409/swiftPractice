@@ -329,3 +329,15 @@ struct modifyCons {
 }
 var mod = modifyCons()
 print(mod.str)
+
+//method extensions
+extension Int {
+    func functionality1(name : () -> Void){
+        for _ in 0...self{
+        name()
+        }
+    }
+}
+2.functionality1{
+      print ("Hello")
+}
