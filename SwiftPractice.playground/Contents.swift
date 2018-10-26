@@ -341,3 +341,34 @@ extension Int {
 2.functionality1{
       print ("Hello")
 }
+
+var q="!"
+var n=8, m=9
+print("Priya" + q)
+//print(n + " " + m)
+
+
+
+
+
+//
+class qq {}
+//weak var see = qq()
+
+//protocol in structure
+struct structType : Equatable{
+    
+}
+// guard statements
+guard 3 != 2 else{
+    //print("3!=2")
+}
+
+print ("after else")
+
+//private(set)
+
+class checkPrivateSet {
+    private (set) var val1 = 3
+}
+
